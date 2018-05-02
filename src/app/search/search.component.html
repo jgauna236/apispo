@@ -1,0 +1,47 @@
+<h1>Búsqueda</h1>
+<form>
+    <div class="form-group">
+        <input type="text" name="searchStr"  [(ngModel)]="searchStr" (keyup)="searchMusic()" class="form-control" placeholder="Buscar...">   
+    </div>  
+ 
+</form>
+
+<div *ngIf="searchResultado">
+        <div *ngFor="let artista of searchResultado">
+                <ol class="breadcrumb">
+                 <li class="breadcrumb-item active" > 
+                   <div class="row justify-content-between">
+                    <div class="col-auto ">
+            
+                      
+                    <img src="{{artista.images[0].url}}" class="img-fluid img" width="128" height="128" > 
+                     
+            
+                   </div>
+                    <div class= "col-auto" >
+                        <h4>
+                       <a   href="{{artista.external_urls.spotify}}">{{artista.name}}</a>
+                      </h4>  
+                      <p style="color: white">
+                         <li>Popularity: {{artista.popularity.total}}</li>
+                         <li>Followers: {{artista.followers.total}}</li>
+                         <li class="container-fluid">
+                              <button 
+                              type="button" 
+                              class="btn btn-secondary" 
+                              placement="right"
+                              ngbPopover="{{artista.genres}}" 
+                              popoverTitle="Géneros"
+                              >
+                                  Generos
+                              </button>
+
+                      </p>
+                    </div>
+                  </div>
+                    
+                    
+                 </li> 
+                </ol> 
+            </div>
+</div>

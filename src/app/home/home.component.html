@@ -1,0 +1,53 @@
+
+<h1>Inicio</h1>
+
+<div *ngFor="let artista of artistas">
+    <ol class="breadcrumb">
+     <li class="breadcrumb-item active" > 
+       <div class="row justify-content-between">
+        <div class="col-auto ">
+
+          
+          <img src="{{artista.images[0].url}}" class="img-fluid img" width="128" height="128" > 
+         
+      
+       </div>
+        <div class= "col-auto" >
+            <h4>
+           <a   href="{{artista.external_urls.spotify}}">{{artista.name}}</a>
+          </h4>  
+          <p style="color: white">
+             <li>Popularity: {{artista.popularity}}</li>
+             <li>Followers: {{artista.followers.total}}</li>
+             <li class="container-fluid">
+                  <button 
+                  type="button" 
+                  class="btn btn-secondary" 
+                  placement="right"
+                  ngbPopover="{{artista.genres}}" 
+                  popoverTitle="Géneros"
+                  >
+                      Generos
+                  </button>
+                </li>
+             <li class="container-fluid">
+                  <a 
+                  href="{{artista.href}}"
+                  type="button" 
+                  class="btn btn-secondary" 
+                  >
+                    <font color="white">
+                      Response JSON
+                    </font>
+                  </a>              
+             </li>
+          </p>
+        </div>
+      </div>
+        
+        
+     </li> 
+    </ol> 
+</div>
+
+
